@@ -6,6 +6,9 @@
     <p>here is the stuff u put which will appear in your body</p>
     <p>{{some_string}}</p>
     <p>{{some_number}}</p>
-    {% include 'personal/snippets/body_snippets.html' %}
+
+    {% for question in questions %}
+        {% include 'personal/snippets/body_snippets.html' %}
+    {% endfor %}
 </div>
 {% endblock content %}
