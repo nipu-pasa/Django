@@ -7,8 +7,9 @@
     <p>{{some_string}}</p>
     <p>{{some_number}}</p>
 
-    {% for question in questions %}
-        {% include 'personal/snippets/body_snippets.html' %}
+    {% for account in accounts %}
+        <p>{{account.date_joined}}</p>
+<!--        {% include 'personal/snippets/body_snippets.html' %}-->
     {% endfor %}
 </div>
 {% endblock content %}
