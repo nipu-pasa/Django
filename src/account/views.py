@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate,logout
-from account.forms import RegistrationForm,AccountAuthenticationForm,AccountUpdateForm
-# from blog.models import BlogPost
+from django.contrib.auth import login, authenticate, logout
+
+from account.forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
+from blog.models import BlogPost
+
+
+
 def registration_view(request):
 	context = {}
 	if request.POST:
@@ -22,11 +26,9 @@ def registration_view(request):
 	return render(request, 'account/register.html', context)
 
 
-
 def logout_view(request):
 	logout(request)
 	return redirect('/')
-
 
 
 def login_view(request):
@@ -55,6 +57,7 @@ def login_view(request):
 
 	# print(form)
 	return render(request, "account/login.html", context)
+
 
 def account_view(request):
 
@@ -86,3 +89,7 @@ def account_view(request):
 	# context['blog_posts'] = blog_posts
 
 	return render(request, "account/account.html", context)
+
+
+def must_authenticate_view(request):
+	return render(request, 'account/must_authenticate.html', {})
